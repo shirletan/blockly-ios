@@ -56,6 +56,8 @@
 		FA2DFCBF1B72DD1D0072A278 /* FieldImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DFCBE1B72DD1D0072A278 /* FieldImage.swift */; };
 		FA2DFCC31B72DD400072A278 /* FieldVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DFCC21B72DD400072A278 /* FieldVariable.swift */; };
 		FA2DFD591B72EBEE0072A278 /* FieldInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DFD581B72EBEE0072A278 /* FieldInput.swift */; };
+		FA2F456E1E9D69B60071C1A3 /* AnglePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F456D1E9D69B60071C1A3 /* AnglePickerViewController.swift */; };
+		FA2F45961E9DAFC90071C1A3 /* AnglePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F45951E9DAFC90071C1A3 /* AnglePicker.swift */; };
 		FA3786A41BFFDF08009D18DF /* LayoutBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3786A31BFFDF08009D18DF /* LayoutBuilderTest.swift */; };
 		FA3786A71C00093B009D18DF /* ConnectionManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3786A61C00093B009D18DF /* ConnectionManagerTest.swift */; };
 		FA3FD13A1CF3C678005B6D0F /* LayoutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FD1391CF3C678005B6D0F /* LayoutTest.swift */; };
@@ -286,6 +288,8 @@
 		FA2DFCBE1B72DD1D0072A278 /* FieldImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldImage.swift; sourceTree = "<group>"; };
 		FA2DFCC21B72DD400072A278 /* FieldVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldVariable.swift; sourceTree = "<group>"; };
 		FA2DFD581B72EBEE0072A278 /* FieldInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldInput.swift; sourceTree = "<group>"; };
+		FA2F456D1E9D69B60071C1A3 /* AnglePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnglePickerViewController.swift; sourceTree = "<group>"; };
+		FA2F45951E9DAFC90071C1A3 /* AnglePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnglePicker.swift; sourceTree = "<group>"; };
 		FA3786A31BFFDF08009D18DF /* LayoutBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutBuilderTest.swift; sourceTree = "<group>"; };
 		FA3786A61C00093B009D18DF /* ConnectionManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManagerTest.swift; sourceTree = "<group>"; };
 		FA3FD1391CF3C678005B6D0F /* LayoutTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTest.swift; sourceTree = "<group>"; };
@@ -895,6 +899,7 @@
 		FAA86FF21C64272C000C7C61 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FA2F45951E9DAFC90071C1A3 /* AnglePicker.swift */,
 				FAA86FF41C64272C000C7C61 /* Assertions.swift */,
 				FAA86FF51C64272C000C7C61 /* BlocklyError.swift */,
 				FAF62A6B1DB6FCB100137B54 /* BundledFile.swift */,
@@ -930,6 +935,7 @@
 		FAA870131C642805000C7C61 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA2F456D1E9D69B60071C1A3 /* AnglePickerViewController.swift */,
 				FAA870151C642805000C7C61 /* DropdownOptionsViewController.swift */,
 				FAA870141C642805000C7C61 /* FieldColorPickerViewController.swift */,
 				FAFD379C1C9B90B100C77049 /* ToolboxCategoryListViewController.swift */,
@@ -1216,6 +1222,7 @@
 				FA41C41B1C582AB800D46967 /* FieldDropdownView.swift in Sources */,
 				FAC035071D516EE10017C1C8 /* FieldDropdownLayout.swift in Sources */,
 				FA56E35B1E28454B00A53631 /* MutatorHelper.swift in Sources */,
+				FA2F456E1E9D69B60071C1A3 /* AnglePickerViewController.swift in Sources */,
 				FACBAB591D8371220063A975 /* WorkspaceLayoutCoordinator.swift in Sources */,
 				FAF5005D1D50669E009E4B24 /* FieldCheckboxLayout.swift in Sources */,
 				FA6232521B6B12CF00F1EF42 /* Field.swift in Sources */,
@@ -1240,6 +1247,7 @@
 				FA27267D1B83C54900777B49 /* Layout.swift in Sources */,
 				FAD652401CB7210C00F73F11 /* DefaultBlockLayout+Background.swift in Sources */,
 				FAA8700B1C64272C000C7C61 /* String+LayoutHelper.swift in Sources */,
+				FA2F45961E9DAFC90071C1A3 /* AnglePicker.swift in Sources */,
 				FA10E3F51C696A9F0095F088 /* FieldAngleView.swift in Sources */,
 				FA57D5521E370BCE0019C29C /* MutatorProcedureCallerLayout.swift in Sources */,
 				FA77D3F41D9B8E850014CBC4 /* BlockJSONFile.swift in Sources */,

@@ -28,29 +28,15 @@ open class FieldAngleView: FieldView {
   }
 
   /// The text field to render
-  open fileprivate(set) lazy var textField: InsetTextField = {
-    let textField = InsetTextField(frame: self.bounds)
-    textField.delegate = self
-    textField.borderStyle = .roundedRect
-    textField.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    textField.keyboardType = .numbersAndPunctuation
-    textField.textAlignment = .right
-    textField.inputAccessoryView = self.toolbar
-    return textField
-  }()
-
-  /// A toolbar that appears above the input keyboard
-  open fileprivate(set) lazy var toolbar: UIToolbar = {
-    let toolbar = UIToolbar()
-    toolbar.barStyle = .default
-    toolbar.isTranslucent = true
-    toolbar.items = [
-      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-      UIBarButtonItem(barButtonSystemItem: .done, target: self,
-        action: #selector(didTapDoneButton(_:)))
-    ]
-    toolbar.sizeToFit() // This is important or else the bar won't render!
-    return toolbar
+  open fileprivate(set) lazy var textField: UIButton = {
+    let button = UIButton(type: .roundedRect)
+    button.frame = self.bounds
+//    textField.delegate = self
+    button.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//    button.keyboardType = .numbersAndPunctuation
+//    button.textAlignment = .right
+    button.addTarget(self, action: #selector(didTapTextField(_:)), for: .touchUpInside)
+    return button
   }()
 
   // MARK: - Initializers
@@ -85,13 +71,13 @@ open class FieldAngleView: FieldView {
       if flags.intersectsWith(Layout.Flag_NeedsDisplay) {
         self.updateTextFieldFromLayout()
 
-        let textField = self.textField
-        textField.text = fieldAngleLayout.textValue
-        textField.font = fieldAngleLayout.config.font(for: LayoutConfig.GlobalFont)
-        textField.textColor =
-          fieldAngleLayout.config.color(for: LayoutConfig.FieldEditableTextColor)
-        textField.insetPadding =
-          fieldAngleLayout.config.edgeInsets(for: LayoutConfig.FieldTextFieldInsetPadding)
+//        let textField = self.textField
+//        textField.text = fieldAngleLayout.textValue
+//        textField.font = fieldAngleLayout.config.font(for: LayoutConfig.GlobalFont)
+//        textField.textColor =
+//          fieldAngleLayout.config.color(for: LayoutConfig.FieldEditableTextColor)
+//        textField.insetPadding =
+//          fieldAngleLayout.config.edgeInsets(for: LayoutConfig.FieldTextFieldInsetPadding)
       }
     }
   }
@@ -99,27 +85,34 @@ open class FieldAngleView: FieldView {
   open override func prepareForReuse() {
     super.prepareForReuse()
 
-    textField.text = ""
+//    textField.text = ""
+  }
+
+  fileprivate dynamic func didTapTextField(_ sender: UITextField) {
+    let viewController = AnglePickerViewController()
+    viewController.delegate = self
+
+    popoverDelegate?
+      .layoutView(self, requestedToPresentPopoverViewController: viewController, fromView: self)
   }
 
   // MARK: - Private
 
   fileprivate func updateTextFieldFromLayout() {
     let text = fieldAngleLayout?.textValue ?? ""
-    if textField.text != text {
-      textField.text = text
-    }
-  }
-
-  fileprivate dynamic func didTapDoneButton(_ sender: UITextField) {
-    // Stop editing the text field
-    textField.resignFirstResponder()
+//    if textField.text != text {
+//      textField.text = text
+//    }
   }
 }
 
 // MARK: - UITextFieldDelegate
 
 extension FieldAngleView: UITextFieldDelegate {
+  public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    return false
+  }
+
   public func textField(_ textField: UITextField,
     shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
   {
@@ -173,5 +166,14 @@ extension FieldAngleView: FieldLayoutMeasurer {
     measureSize.width =
       min(measureSize.width + textPadding.leading + textPadding.trailing, maxWidth)
     return measureSize
+  }
+}
+
+// MARK: - AnglePickerViewControllerDelegate
+
+extension FieldAngleView: AnglePickerViewControllerDelegate {
+  public func anglePickerViewController(
+    _ viewController: AnglePickerViewController, didPickAngle angle: Int) {
+
   }
 }
