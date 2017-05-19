@@ -6,4 +6,4 @@ env:
 
 script:
   xcodebuild test -project Samples/BlocklySample/BlocklySample.xcodeproj  -scheme BlocklyTests 
-                  -destination simulator 
+                  -destination ${simulator} 
